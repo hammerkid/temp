@@ -1,0 +1,5 @@
+django-simple-captcha
+sorl-thumbnail
+django_tables2
+django-extensions
+django

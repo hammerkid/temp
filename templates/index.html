@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% load thumbnail %}
+{% load render_table from django_tables2 %}
+<nav class="navbar navbar-light bg-light">
+  <a class="navbar-brand" href="#">
+    <img src="/docs/4.1/assets/brand/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top" alt="">
+    {{ meta_description }}
+  </a>
+<a class="btn btn-primary" href="{% url 'add_post' %}">Add post</a>
+</nav>
+
+    <div style="width:100%">
+        {% for img in images %}
+            {% thumbnail img.image "200x200" crop="center" as im %}
+              <div style="float:left; width:200px; height:200px;">
+              <a href={{ img.image.url }}>
+                  <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}">
+              </a>
+              </div>
+            {% endthumbnail %}
+        {% endfor%}
+   </div>
+
+
+
+    {% render_table table %}
+
+{% endblock content %}
