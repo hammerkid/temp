@@ -3,3 +3,7 @@ sorl-thumbnail
 django_tables2
 django-extensions
 django
+django-file-resubmit
+pyyaml
+ua-parser
+user-agents

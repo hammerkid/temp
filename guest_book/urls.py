@@ -6,9 +6,7 @@ from guest_book import views
 
 urlpatterns = [
     url(r'^$', views.index, name='index'),
-    url(r'^add_post$', views.add_post, name='add_post'),
-    url(r'^check_form', views.check_form, name='check_form'),
-    url(r'^thanks', RedirectView.as_view(url='/')),
+    url(r'^add_post', views.add_post, name='add_post'),
     ]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

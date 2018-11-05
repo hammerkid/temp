@@ -1,6 +1,7 @@
 from django.forms import ModelForm
 from captcha.fields import CaptchaField
 from guest_book.models import Message, CustomUser
+from file_resubmit.admin import AdminResubmitImageWidget
 
 
 class UserForm(ModelForm):
@@ -20,4 +21,7 @@ class MessageForm(ModelForm):
     class Meta:
         model = Message
         fields = ['link', 'message', 'image']
+        widgets = {
+            'image': AdminResubmitImageWidget,
+        }
 

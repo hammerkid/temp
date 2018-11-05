@@ -4,7 +4,7 @@
 <a class="btn btn-primary" href="/">Back</a>
 </h1>
 
-    <form action="/check_form/" method="post" enctype="multipart/form-data" class="form">
+    <form action="/add_post/" method="post" enctype="multipart/form-data" class="form">
         {% csrf_token %}
         {{ u_form.as_p }}
         {{ m_form.as_p }}

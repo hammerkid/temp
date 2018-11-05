@@ -19,7 +19,7 @@ class CustomUser(models.Model):
 
 
 class Message(models.Model):
-    sender = models.ForeignKey(CustomUser, related_name="sender")
+    sender = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
     message = models.CharField(max_length=255)
     created_at = models.DateTimeField(auto_now_add=True)
     link = models.URLField(blank=True)

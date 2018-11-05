@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'sorl.thumbnail',
     'captcha',
     'django_tables2',
+    'file_resubmit',
 ]
 
 
@@ -128,4 +129,14 @@ MEDIA_URL = '/media/'
 
 DATETIME_FORMAT = 'Y N j, H:i'
 SHORT_DATETIME_FORMAT = 'Y N j, H:i'
+
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
+    },
+    "file_resubmit": {
+        'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
+        "LOCATION": '/tmp/file_resubmit/'
+    },
+}
 

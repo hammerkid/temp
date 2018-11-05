@@ -27,15 +27,7 @@ def index(request):
 
 def add_post(request):
     """ view vith froms to add post/message"""
-    u_form = UserForm()
-    m_form = MessageForm()
 
-    return render(request, 'add_post.html', {'u_form': u_form,
-                                             'm_form': m_form})
-
-
-def check_form(request):
-    """ form validator """
     if request.method == 'POST':
         br, ip = get_client_browser_ip(request)
         u_form = UserForm(request.POST)
@@ -53,7 +45,13 @@ def check_form(request):
             return redirect('index')
         else:
             return render(request, 'add_post.html', {'u_form': u_form,
-                                                     'm_form': m_form})
+                                                    'm_form': m_form})
+    else:
+        u_form = UserForm()
+        m_form = MessageForm()
+        return render(request, 'add_post.html', {'u_form': u_form,
+                                                 'm_form': m_form})
+
 
 
 
